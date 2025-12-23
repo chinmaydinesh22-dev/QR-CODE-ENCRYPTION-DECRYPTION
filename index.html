@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>QR Cipher — Encrypt & Decrypt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <h1>QR Cipher — Encrypt & Decrypt</h1>
+
+    <section class="panel">
+      <h2>Encrypt text → QR</h2>
+      <textarea id="message" placeholder="Type message to encrypt..." rows="4"></textarea>
+      <div class="row">
+        <button id="btn-encrypt">Encrypt & Show QR</button>
+        <button id="btn-download-qr">Encrypt & Download QR</button>
+        <button id="btn-generate-key">(Re)generate key</button>
+      </div>
+
+      <div id="encrypt-result" class="result hidden">
+        <h3>QR Preview</h3>
+        <img id="qr-preview" alt="QR code preview">
+        <p><strong>Encrypted token (copy):</strong></p>
+        <textarea id="token-output" rows="3" readonly></textarea>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Decrypt using token string</h2>
+      <textarea id="token-input" rows="3" placeholder="Paste encrypted token here..."></textarea>
+      <button id="btn-decrypt-token">Decrypt Token</button>
+
+      <div id="decrypt-result" class="result hidden">
+        <h3>Decrypted Plaintext</h3>
+        <pre id="plaintext-output"></pre>
+      </div>
+    </section>
+
+    <div id="status" class="status"></div>
+    <footer>Built with 🔐 Fernet + QR • Windows-ready</footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
